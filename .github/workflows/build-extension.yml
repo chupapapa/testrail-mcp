@@ -1,0 +1,51 @@
+name: Build and Release VS Code Extension
+
+on:
+  release:
+    types: [created]
+
+permissions:
+  contents: write
+
+jobs:
+  build-extension:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+    
+    - name: Install dependencies
+      run: |
+        cd testrail-mcp-extension
+        npm install
+    
+    - name: Compile extension
+      run: |
+        cd testrail-mcp-extension
+        npm run compile
+    
+    - name: Package extension
+      run: |
+        cd testrail-mcp-extension
+        npm run package
+    
+    - name: Get extension version
+      id: get_version
+      run: |
+        cd testrail-mcp-extension
+        VERSION=$(node -p "require('./package.json').version")
+        echo "version=$VERSION" >> $GITHUB_OUTPUT
+    
+    - name: Upload VSIX to Release
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ github.event.release.upload_url }}
+        asset_path: ./testrail-mcp-extension/testrail-mcp-extension-${{ steps.get_version.outputs.version }}.vsix
+        asset_name: testrail-mcp-extension-${{ steps.get_version.outputs.version }}.vsix
+        asset_content_type: application/zip
