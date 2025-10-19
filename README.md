@@ -177,7 +177,7 @@ The TestRail MCP Tools extension brings TestRail integration directly into VS Co
 ### Quick Start
 
 1. **Install the extension**:
-   - Download the `.vsix` file from `testrail-mcp-extension/`
+   - Download the `.vsix` file from the [latest release](https://github.com/chupapapa/testrail-mcp/releases/latest)
    - Install in VS Code: Extensions → "..." menu → "Install from VSIX..."
 
 2. **Configure credentials**:

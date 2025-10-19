@@ -37,7 +37,7 @@ Before installing the extension, ensure you have the following:
 
 #### Option A: From VSIX File (Recommended for now)
 
-1. Download `testrail-mcp-extension-0.1.0.vsix` from the releases
+1. Download `testrail-mcp-extension-0.1.0.vsix` from the [latest release](https://github.com/chupapapa/testrail-mcp/releases/latest)
 2. Open VS Code
 3. Go to Extensions view (Ctrl+Shift+X / Cmd+Shift+X)
 4. Click the "..." menu at the top right

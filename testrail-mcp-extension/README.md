@@ -39,7 +39,7 @@ pip install -e .
 
 ### Install the Extension
 
-1. Download the `.vsix` file from the releases page
+1. Download the `.vsix` file from the [latest release](https://github.com/chupapapa/testrail-mcp/releases/latest)
 2. Open VS Code
 3. Go to Extensions view (Ctrl+Shift+X)
 4. Click the "..." menu at the top
