@@ -23,7 +23,10 @@
     "language-model"
   ],
   "activationEvents": [
-    "onStartupFinished"
+    "onStartupFinished",
+    "onCommand:testrailMcp.configureCredentials",
+    "onCommand:testrailMcp.testConnection",
+    "onCommand:testrailMcp.reconnect"
   ],
   "main": "./dist/extension.js",
   "contributes": {
