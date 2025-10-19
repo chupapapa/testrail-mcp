@@ -1,0 +1,96 @@
+{
+  "name": "testrail-mcp-extension",
+  "displayName": "TestRail MCP Tools",
+  "description": "Access TestRail test management system through GitHub Copilot Chat using MCP",
+  "version": "0.1.0",
+  "publisher": "testrail-mcp",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chupapapa/testrail-mcp.git"
+  },
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "Testing",
+    "Other"
+  ],
+  "keywords": [
+    "testrail",
+    "mcp",
+    "testing",
+    "copilot",
+    "language-model"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "testrailMcp.configureCredentials",
+        "title": "TestRail MCP: Configure Credentials"
+      },
+      {
+        "command": "testrailMcp.testConnection",
+        "title": "TestRail MCP: Test Connection"
+      },
+      {
+        "command": "testrailMcp.reconnect",
+        "title": "TestRail MCP: Reconnect"
+      }
+    ],
+    "configuration": {
+      "title": "TestRail MCP",
+      "properties": {
+        "testrailMcp.serverUrl": {
+          "type": "string",
+          "default": "",
+          "description": "TestRail server URL (e.g., https://your-instance.testrail.io)",
+          "order": 1
+        },
+        "testrailMcp.mcpServerPath": {
+          "type": "string",
+          "default": "uvx",
+          "description": "Path to the MCP server executable (default: uvx for using uvx testrail-mcp)",
+          "order": 2
+        },
+        "testrailMcp.mcpServerArgs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": ["testrail-mcp"],
+          "description": "Arguments to pass to the MCP server",
+          "order": 3
+        },
+        "testrailMcp.debug": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable debug logging",
+          "order": 4
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@types/node": "^20.x",
+    "@types/vscode": "^1.95.0",
+    "@typescript-eslint/eslint-plugin": "^6.x",
+    "@typescript-eslint/parser": "^6.x",
+    "eslint": "^8.x",
+    "typescript": "^5.3.0",
+    "@vscode/vsce": "^2.22.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4"
+  }
+}

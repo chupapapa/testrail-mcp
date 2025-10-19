@@ -15,6 +15,7 @@ A Model Context Protocol (MCP) server for TestRail that allows interaction with 
   - Datasets
 - Full support for the Model Context Protocol
 - Compatible with any MCP client (Claude Desktop, Cursor, Windsurf, etc.)
+- **NEW**: VS Code Extension for GitHub Copilot Chat integration
 
 ## See it in action together with Octomind MCP
 
@@ -161,6 +162,47 @@ npx @modelcontextprotocol/inspector \
 ```
 
 This will open a web interface where you can explore and test all the available tools and resources.
+
+## VS Code Extension
+
+The TestRail MCP Tools extension brings TestRail integration directly into VS Code and GitHub Copilot Chat.
+
+### Features
+
+- **GitHub Copilot Chat Integration**: Use `#testrail_mcp` tool in Copilot Chat
+- **Secure Credential Storage**: API keys stored securely in VS Code
+- **Real-time Connection Status**: Monitor connection status from the status bar
+- **Complete TestRail API Coverage**: Access all TestRail operations
+
+### Quick Start
+
+1. **Install the extension**:
+   - Download the `.vsix` file from `testrail-mcp-extension/`
+   - Install in VS Code: Extensions → "..." menu → "Install from VSIX..."
+
+2. **Configure credentials**:
+   - Run command: `TestRail MCP: Configure Credentials`
+   - Enter your TestRail URL, username, and API key
+
+3. **Use with Copilot Chat**:
+   ```
+   @workspace Using #testrail_mcp, list all projects
+   @workspace Using #testrail_mcp, get test case 123
+   @workspace Using #testrail_mcp, create a test run for project 5
+   ```
+
+### Documentation
+
+- [Installation Guide](testrail-mcp-extension/INSTALL.md) - Detailed setup instructions
+- [Usage Examples](testrail-mcp-extension/EXAMPLES.md) - Practical usage scenarios
+- [Settings Reference](testrail-mcp-extension/SETTINGS_EXAMPLES.md) - Configuration options
+- [README](testrail-mcp-extension/README.md) - Complete extension documentation
+
+### Requirements
+
+- VS Code 1.95.0 or higher
+- GitHub Copilot subscription
+- TestRail MCP server (installed via uvx or locally)
 
 ## Development
 

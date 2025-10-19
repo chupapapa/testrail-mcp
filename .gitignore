@@ -172,3 +172,11 @@ cython_debug/
 
 # PyPI configuration file
 .pypirc
+
+# Node.js / VS Code Extension
+testrail-mcp-extension/node_modules/
+testrail-mcp-extension/dist/
+testrail-mcp-extension/*.vsix
+testrail-mcp-extension/**/*.js
+testrail-mcp-extension/**/*.js.map
+!testrail-mcp-extension/.eslintrc.json
